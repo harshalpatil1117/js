@@ -1,0 +1,45 @@
+<!-- 7) checkboxes.htm
+	Requirement :
+			
+		- Checking/Un-checking "Check All" check box should check/un-check all
+		  the other corresponding check boxes.
+		  Also, if "Check All" check box is checked and
+		  if user un-checks any other check box then "Check All" check box should be un-checked.
+		- When all check boxes are checked and "Check All" check box should get checked.
+		- Consider a check-box with "Check All" label.
+		- Other checkboxes presented in a vertical manner :
+          	 (i) USA (ii) UK (iii) India (iv) Asia Pacific (v) Australia(vi) Middle East
+		- Note that checkbox should be selectable by clicking on the corresponding label. -->
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+            <title>Document</title>
+        </head>
+        <body>
+            <input type="checkbox" class="check">USA <br><br>
+            <input type="checkbox" class="check">UK <br><br>
+            <input type="checkbox" class="check">INDIA <br><br>
+            <input type="checkbox" class="check">ASIA PACIFIC <br><br>
+            <input type="checkbox" class="check">AUSTRALIA <br><br>
+            <input type="checkbox" class="check">MIDDLE East <br><br>
+            <input type="checkbox" class="check" id="all">CHECK ALL <br><br>   
+            <script>
+                $(document).ready(function(){
+                    $("#all").change(function(){
+                        $("input[type = checkbox]").prop("checked",$(this).prop("checked"));
+                    });
+                    $("input[type=checkbox]").click(function(){
+                        if(!$(this).prop("checked")){
+                            $("#all").prop("checked",false);
+                        }
+                    
+                    })
+                })
+            </script>
+        </body>
+        </html>

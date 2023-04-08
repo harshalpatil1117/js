@@ -1,0 +1,110 @@
+<!-- 8) datevalidation.htm
+	Requirement :
+
+		- Date entered by the user should be checked for whether it is a Valid Date or not.
+		  Entered date should be in "MM-DD-YYYY" format.
+		  Display the Date Format along with the Text Box.
+		
+		- You are required to perform following checks :
+
+			- Entered characters should be digits only.
+			- Month should be within the range 1 to 12.
+			- Days should be within the range 1 to 31.
+				Check the entered Days and its corresponding Month.
+			E.g.	1) Month of April cannot have days less than 1 and more than 30 days.
+				2) Month of February cannot have days less than 1 and more than 28 days.
+				   If the Current Year is a Leap Year then User can provide 29 days for
+				   the month of February.
+
+		 - Error messages :
+
+			- "Please enter date in MM-DD-YYYY format"
+			- "Invalid date. Please enter date in MM-DD-YYYY format"
+			- "Invalid month. Month should be within the range 1 to 12"
+			- "Invalid day. Day should be within the range 1 to 31" (or as applicable)
+
+		- Final message :
+
+			- You have entered valid date. Its "20-10-1980". Thank you. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="">Enter your Date :</label>
+    <input type="text" placeholder="MM-DD-YYYY" id="date">
+    <button onclick="myfunction()">check </button><br>
+    <p id="demo"></p>
+    <script>
+        function myfunction() {
+            var date = document.getElementById("date").value;
+            console.log(date);
+
+            var regdate = /^[0-9]{2}\-[0-9]{2}\-[0-9]{4}$/
+            if (!regdate.test(date)) {
+                alert("Please enter date in MM-DD-YYYY format")
+            }
+            var arr = date.split("-");
+            console.log(arr);
+            if (arr[0] > 12) {
+                document.getElementById("demo").innerHTML = "Invalid month. Month should be within the range 1 to 12"
+                document.getElementById("demo").style.color = "red"
+            }
+            else {
+                if (arr[0] == 1 || arr[0] == 3 || arr[0] == 5 || arr[0] == 7 || arr[0] == 8 || arr[0] == 10 || arr[0] == 12) {
+                    if (arr[1] <= 31) {
+                        document.getElementById("demo").innerHTML = "You have entered valid date. Its " + date + ". Thank you."
+                        document.getElementById("demo").style.color = "green"
+                    }
+                    else {
+                        document.getElementById("demo").innerHTML = "Invalid day. Day should be within the range 1 to 31"
+                        document.getElementById("demo").style.color = "red"
+                    }
+                }
+                else if (arr[0] == 4 || arr[0] == 6 || arr[0] == 9 || arr[0] == 11) {
+                    if (arr[1] <= 30) {
+                        document.getElementById("demo").innerHTML = "You have entered valid date. Its " + date + ". Thank you."
+                        document.getElementById("demo").style.color = "green"
+                    }
+                    else {
+                        document.getElementById("demo").innerHTML = "Invalid day. Day should be within the range 1 to 31"
+                        document.getElementById("demo").style.color = "red"
+                    }
+                }
+                else if (arr[0] == 2) {
+                    if (arr[2] % 400 == 0 || (arr[2] % 100 != 0 && arr[2] % 4 == 0)) {
+                        if (arr[1] <= 29) {
+                            document.getElementById("demo").innerHTML = "You have entered valid date. Its " + date + ". Thank you."
+                            document.getElementById("demo").style.color = "green"
+                        }
+                        else {
+                            document.getElementById("demo").innerHTML = "Invalid day. Day should be within the range 1 to 31"
+                            document.getElementById("demo").style.color = "red"
+                        }
+                    }
+
+                }
+                else {
+                    if (arr[1] <= 28) {
+                        document.getElementById("demo").innerHTML = "You have entered valid date. Its " + date + ". Thank you."
+                        document.getElementById("demo").style.color = "green"
+                    }
+                    else {
+                        document.getElementById("demo").innerHTML = "Invalid day. Day should be within the range 1 to 31"
+                        document.getElementById("demo").style.color = "red"
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!-- 5) multiplespan.htm
+	Requirement :
+		
+		- Label : "Please select your technology :"
+		- Consider following set of radio buttons :-
+		  "PHP", "ASP.NET", "ASP", "JSP", "PERL", "Cold Fusion", "Other". Layout these buttons in a Horizontal manner.
+		- Clicking on a particular radio button should display the related technology name besides label : "You have  selected : ".
+		- Use multiple "span" HTML element for displaying the related message.
+		- Note that radio button should be selectable by clicking on the corresponding label. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <label for="">Please select your technology :</label>
+            <input type="radio" id="tech"  class="radio" name="tech" value="PHP">PHP
+            <input type="radio" id="tech1" class="radio"  name="tech" value="ASP.NET">ASP.NET
+            <input type="radio" id="tech2" class="radio"  name="tech" value="ASP">ASP
+            <input type="radio" id="tech3" class="radio"  name="tech" value="JSP">JSP
+            <input type="radio" id="tech4" class="radio"  name="tech" value="PERL">PERL
+            <input type="radio" id="tech5" class="radio"  name="tech" value="COLD FUSION">COLD FUSION
+            <input type="radio" id="tech6" class="radio"  name="tech" value="OTHER">OTHER
+            <br><br>
+            <label for="">You have selected : <span id="show"></span> .</label>
+
+            <br><br>
+            <input type="radio" id="tech8" class="check" name="tech1" value="blue">blue
+            <input type="radio" id="tech9" class="check" name="tech1" value="red">red
+            <br><br>
+            <label for="">You have selected : <span id="show1"></span>.</label>
+    <script>
+            $(document).ready(function(){
+                $(".radio").change(function(){
+                    var select = $("[name = tech]:checked").val();
+                    console.log(select);
+                    $("#show").html(select)
+                })
+            })
+            $(document).ready(function(){
+                $(".check").change(function(){
+                    var select = $("[name=tech1]:checked").val();
+                    $("#show1").html(select)
+                })
+            })
+    </script>
+</body>
+</html>

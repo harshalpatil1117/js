@@ -1,0 +1,114 @@
+<!-- 9) math.htm
+	Requirement :
+
+		- Create an application for performing basic math operations like Addition, Subtraction,
+		  Multiplication and Division.
+
+		- Consider following elements :
+		(i) Label : "Please enter first number : " with Text Box
+		(ii) Label : "Please enter second number : " with Text Box
+		(iii) Label : "Please select operation you want to perform : "
+
+		with set of Radio Buttons like "Addition", "Subtraction", "Multiplication" and "Division"
+		presented in vertical manner.
+
+		(iv) Two buttons, viz, "Calculate" and "Reset"
+		(v) Label : "Result is : " with final result
+
+		- Place all the checks to make sure that user enters only numeric values for text boxes.
+		  Also, make sure that user selects the operation radio button before clicking on the
+		  "Calculate" button.
+
+		- Clicking on "Calculate" button will perform the requested operation and
+		  the result will be displayed below "Calculate" and "Reset" buttons in the form of text,
+		  e.g. : "Result is : 10".
+
+		- Clicking on "Reset" button will reset all the form information including radio button
+		  selection and result text.
+			
+		- Error messages :
+			- Please enter first number or Please enter second number
+			- Please enter only numeric value for first number or Please enter only numeric
+			  value for second number
+			- Please select the operation you want to perform
+
+NOTE :- Validation flow will be top to bottom. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        form {
+            border: 1px solid black;
+            margin: 10%;
+            padding: 1%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <label for="">Enter your first number :</label>
+        <input type="text" id="num1"><br><br>
+        <label for="">Enter your second number :</label>
+        <input type="text" id="num2"><br><br>
+        <input type="radio" name="cal" value="0" id="add"> Addition <br>
+        <input type="radio" name="cal" value="1" id="sub"> Subtraction <br>
+        <input type="radio" name="cal" value="2" id="multi"> Multiplication <br>
+        <input type="radio" name="cal" value="3" id="div"> Division <br><br>
+        <input type="button" onclick="myfunction()" value="Calculate">
+        <input type="submit" value="Reset"><br>
+        <label for="">Result is : <span id="result"></span></label>
+    </form>
+    <script>
+        function myfunction() {
+            var num1 = document.getElementById("num1").value
+            var num2 = document.getElementById("num2").value
+            var regNUM1 = /^[0-9]*$/
+            var regNUM2 = /^[0-9]*$/
+            if (!$("input[type=radio").prop("checked")) {
+                alert("Please select the operation you want to perform")
+            }
+            var cal = document.querySelector("[name=cal]:checked").value
+            
+            if (num1 == "" || num2 == "") {
+
+                alert("Please enter first number or Please enter second number")
+            }
+            else {
+                if (regNUM1.test(num1) && regNUM2.test(num2)) {
+                    if (cal == 0) {
+                        document.getElementById("result").innerHTML = parseInt(num1) + parseInt(num2)
+                    }
+                    else if (cal == 1) {
+                        document.getElementById("result").innerHTML = parseInt(num1) - parseInt(num2)
+                    }
+                    else if (cal == 2) {
+                        document.getElementById("result").innerHTML = parseInt(num1) * parseInt(num2)
+                    }
+                    else if (cal == 3) {
+                        document.getElementById("result").innerHTML = parseInt(num1) / parseInt(num2)
+                    }
+                }
+                else {
+                    alert("Please enter only numeric value for first number or Please enter only numeric value for second number")
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>

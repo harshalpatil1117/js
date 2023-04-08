@@ -1,0 +1,41 @@
+<!-- 6) multiplebutton.htm
+	Requirement :
+
+
+		- Clicking on different buttons ("button" input type) should submit the form to different pages.
+		- Consider "numeric1.htm" and "numeric2.htm" files for this.
+		- Label 1 : Please click on "Submit 1" button for opening numeric1.htm
+		- Label 2 : Please click on "Submit 2" button for opening numeric2.htm
+		- Clicking on "Submit 1" button will open "numeric1.htm" while clicking on "Submit 2" button will open "numeric2.htm" in the same window.
+		- Use Browser back button for traversing among various pages. -->
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+            <title>Document</title>
+        </head>
+        <body>
+            <form action="">
+            <label for="">Label 1 : Please click on "Submit 1" button for opening numeric1.htm</label>
+            <input type="button" id="submit1" value="Submit 1" onclick="myfunction()">
+            <br><br>
+            <label for="">Label 2 : Please click on "Submit 2" button for opening numeric2.htm</label>
+            <input type="button" value="Submit 2" id="submit2" onclick="myfunc()">
+        
+            </form>
+            <!-- <button onclick="history.back()">Browser back</button> -->
+            <script>
+
+                function myfunction(){
+                    location.href='numeric1.html'
+                }
+                function myfunc(){
+                    location.href='numeric2.html'
+                }
+            </script>
+
+        </body>
+        </html>

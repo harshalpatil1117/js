@@ -1,0 +1,52 @@
+<!-- 2) numeric2.htm
+	Requirement :
+
+		- Check if the value entered in Text Box is a numeric value or not,
+		i.e., text characters and even null/empty values should not be allowed.
+		- Error message needs to be : In case of empty field - "Please enter any numeric value" and
+		in case of non-numeric value - "Only numeric values are allowed. Please re-enter the value". 
+		Final message - "Entered value is a numeric value".
+		- Provide appropriate focus to the error fields.
+
+	DO NOT USE in-built javascript "isNaN()" function.      MIGHT BE USE REGULAR EXPRESSION -->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <label for="">enter your number :</label>
+        <input type="text" id="num">
+        <button onclick="myFunction()">CHeck</button>
+        <button onclick="history.back()">Browser back</button>
+        <script>
+            function myFunction(){
+           var num1 = document.getElementById("num").value;
+           var num2 = Number(num1);
+           console.log(typeof num2);
+           console.log(num2);
+           
+           var regNUM = /^[0-9]*\.?[0-9]*$/;
+            if(num2 == ""){
+                alert("Please enter any numeric value")
+                return false
+            }
+            else if(regNUM.test(num2))
+            {
+                alert("Entered value is a numeric value")
+                return false
+            }
+            else(num2 != regNUM.test(num2))
+            {
+                alert("Only numeric values are allowed. Please re-enter the value")
+                return false
+            }
+            
+            }
+        </script>
+    </body>
+    </html>
