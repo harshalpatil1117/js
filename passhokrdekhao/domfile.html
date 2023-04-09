@@ -1,0 +1,33 @@
+<!-- 13) domfile.htm
+	Requirement : 
+	
+	- Click on 'Add a Contact' link. text box should generate using js(DOM) with 'x' sign.
+	  click on that 'x' sign remove that textbox.
+	- "Add a Contact" sign should gererate 'n' number of textbox. -->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <form action="" id="form">
+            <a href="#" onclick="myfunction()">Add a Contact</a>
+
+        </form>
+        <script>
+            function myfunction() {
+                var form = document.getElementById("form");
+                var text = document.createElement("input");
+                text.type="text";
+                var button = document.createElement("button");
+                button.innerText ="X";
+                form.append(text)
+                form.append(button)
+            }
+        </script>
+    </body>
+    </html>

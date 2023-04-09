@@ -1,0 +1,55 @@
+<!-- 14) showhide.htm
+	Requirement :
+
+	- Create 3 div & filled by 3 different colors & take 2 buttons for every single div.
+������- One button for ��showing�� respected one div when its not showing.
+������- one button for ��hidding�� respected one div when its showing. --> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="divs" style="background-color: aqua;">
+        1
+    </div>
+    <button id="show">show</button>
+    <button id="hide">hide</button>
+    <div id="divs1" style="background-color: black;">
+        2
+    </div>
+    <button id="show1">show</button>
+    <button id="hide1">hide</button>
+    <div id="divs2" style="background-color: red;">
+        3
+    </div>
+    <button id="show2">show</button>
+    <button id="hide2">hide</button>
+    <script>
+       $(document).ready(function(){
+  $("#hide").click(function(){
+    $("#divs").hide();
+  });
+  $("#show").click(function(){
+    $("#divs").show();
+  });
+  $("#hide1").click(function(){
+    $("#divs1").hide();
+  });
+  $("#show1").click(function(){
+    $("#divs1").show();
+  });
+  $("#hide2").click(function(){
+    $("#divs2").hide();
+  });
+  $("#show2").click(function(){
+    $("#divs2").show();
+  });
+});
+    </script>
+</body>
+</html>

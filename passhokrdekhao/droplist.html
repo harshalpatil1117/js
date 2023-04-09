@@ -1,0 +1,40 @@
+<!-- 12) droplist.htm
+	Requirement :
+
+	- Put a droplist with 5 country name
+	  (Eg. India, United Kingdom..). Default value should "Please select".
+	- Bellow droplist all country name which are in the dropdown that should display with Label :
+	  "Your Selected Country : ".
+	- By default all country name should display.
+	- Only that country name should appear which are you select from dropdown.
+	  All other label should be disappear.
+	- When i select 'Please select', all countries name should get displayed. -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <select name="country" id="country" class="con">
+          
+            <option value="Please-select" class="con" name="country">Please-select</option>
+            <option value="India" name="country">India</option>
+            <option value="united kingdom" name="country" class="con">united kingdom</option>
+            <option value="japan" name="country" class="con">japan</option>
+            <option value="usa" name="country" class="con">usa</option>
+            <option value="china" name="country" class="con">china</option>
+        </select>
+        <label for="">Your selected country : <span id="count"></span></label>
+        <script>
+           $(".con").change(function() {
+            var country = $("Option:selected").val();
+           console.log(country);
+            $("#count").html(country);
+           })
+        </script>
+    </body>
+    </html>

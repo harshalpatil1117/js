@@ -1,0 +1,80 @@
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="card text-start" id="one">
+        <!-- <h4 class="card-title" id="name">Name:</h4>
+  <div class="card-body">
+    <h4 class="card-title" id="gender">Gender:</h4>
+    <p class="card-text" id="status">Status:</p> -->
+  </div>
+</div>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Status</th>
+    </tr>
+<tbody id="tbl">
+    
+</tbody>
+</table>
+
+    <script>
+        async function get(link){
+            var data = await fetch(link);
+            data = await data.text();
+            localStorage.setItem("data",data);
+            var x = localStorage.getItem("data");
+            x = JSON.parse(x);
+            var output = JSON.parse(data); 
+            console.log(output);
+            arr=''
+            for(let i of output){
+                arr+=`
+//                 <h4 class="card-title" id="name">${i.name}</h4>
+//   <div class="card-body">
+//     <h4 class="card-title" id="gender">${i.gender}</h4>
+//     <p class="card-text" id="status">${i.status}</p>
+//   </div>
+<tr><td>${i.name}</td>
+    <td>${i.gender}</td>
+    <td>${i.status}</td>
+    </tr>
+  `
+  $('#tbl').html(arr); 
+            //    $("#name").text(i.name);
+            //    $("#gender").text(i.gender);
+            //    $("#status").text(i.status);
+            }
+        }   
+
+        get("https://gorest.co.in/public/v2/users");
+        
+    </script>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
